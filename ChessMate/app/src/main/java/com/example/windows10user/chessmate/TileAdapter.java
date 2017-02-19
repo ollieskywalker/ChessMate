@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * Created by Windows 10 User on 2/18/2017.
@@ -37,7 +38,7 @@ public class TileAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        ImageView imageView;
+        final ImageView imageView;
         if (view == null) {
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams(150, 150));
@@ -47,6 +48,13 @@ public class TileAdapter extends BaseAdapter {
         }
 
         imageView.setImageResource(tiles[position]);
+        imageView.setId(position);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "" + imageView.getId(), Toast.LENGTH_SHORT).show();
+            }
+        });
         return imageView;
     }
 

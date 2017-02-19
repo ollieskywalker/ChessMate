@@ -1,10 +1,15 @@
 package com.example.windows10user.chessmate;
 
+import android.content.Intent;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     ImageView imageView;
@@ -14,9 +19,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GridView gridview = (GridView) findViewById(R.id.board);
+        final GridView gridview = (GridView) findViewById(R.id.board);
         gridview.setAdapter(new TileAdapter(this));
 
-        imageView = (ImageView)findViewById()
+        startActivity(new Intent(this,LogIn.class));
+
     }
 }
